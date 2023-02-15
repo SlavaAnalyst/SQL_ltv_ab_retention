@@ -19,7 +19,7 @@ SELECT
 FROM
 	user_activity
 WHERE
-	installed_at >= '2022-01-01'
+	installed_at >= '2020-01-01' 
 GROUP BY
 	cohort_month
 ORDER BY
