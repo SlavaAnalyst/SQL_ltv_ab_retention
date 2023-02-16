@@ -1,14 +1,14 @@
 WITH user_activity AS (
-		SELECT
-			l.user_id AS user_id,
-			FROM_UNIXTIME(l.installed_at, '%Y-%m-%d') AS installed_at,
-			FROM_UNIXTIME(r.created_at, '%Y-%m-%d') AS created_at
+			SELECT
+				l.user_id AS user_id,
+				FROM_UNIXTIME(l.installed_at, '%Y-%m-%d') AS installed_at,
+				FROM_UNIXTIME(r.created_at, '%Y-%m-%d') AS created_at
 
-		FROM
-			user AS l
-		LEFT JOIN client_session AS r
-			ON l.user_id = r.user_id
-		)
+			FROM
+				user AS l
+			LEFT JOIN client_session AS r
+				ON l.user_id = r.user_id
+			)
 
 SELECT
 	DATE_TRUNC('month', installed_at) AS cohort_month,
